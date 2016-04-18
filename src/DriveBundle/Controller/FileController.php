@@ -23,7 +23,7 @@ class FileController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $entities = $em->getRepository('FlowerDriveBundle:File')->findAll();
-        return $this->render('FlowerDriveBundle:File:index.html.twig', array(
+        return $this->render('FlowerDriveBundle:file:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -40,7 +40,7 @@ class FileController extends Controller
         ));
         $deleteForm = $this->createDeleteForm($file->getId(), 'drive_file_delete');
 
-        return $this->render('FlowerDriveBundle:File:show.html.twig', array(
+        return $this->render('FlowerDriveBundle:file:show.html.twig', array(
             'file' => $file,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -64,7 +64,7 @@ class FileController extends Controller
 
         $form = $this->createForm(new FileType(), $file);
 
-        return $this->render('FlowerDriveBundle:File:new.html.twig', array(
+        return $this->render('FlowerDriveBundle:file:new.html.twig', array(
             'file' => $file,
             'form' => $form->createView(),
         ));
@@ -96,7 +96,7 @@ class FileController extends Controller
             return $this->redirect($this->generateUrl('drive_file_show', array('id' => $file->getId())));
         }
 
-        return $this->render('FlowerDriveBundle:File:new.html.twig', array(
+        return $this->render('FlowerDriveBundle:file:new.html.twig', array(
             'file' => $file,
             'form' => $form->createView(),
         ));
@@ -114,7 +114,7 @@ class FileController extends Controller
         ));
         $deleteForm = $this->createDeleteForm($file->getId(), 'drive_file_delete');
 
-        return $this->render('FlowerDriveBundle:File:edit.html.twig', array(
+        return $this->render('FlowerDriveBundle:file:edit.html.twig', array(
             'file' => $file,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -148,7 +148,7 @@ class FileController extends Controller
         }
         $deleteForm = $this->createDeleteForm($file->getId(), 'drive_file_delete');
 
-        return $this->render('FlowerDriveBundle:File:edit.html.twig', array(
+        return $this->render('FlowerDriveBundle:file:edit.html.twig', array(
             'file' => $file,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

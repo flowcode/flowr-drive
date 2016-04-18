@@ -23,7 +23,7 @@ class FolderController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $entities = $em->getRepository('FlowerDriveBundle:Folder')->findAll();
-        return $this->render('FlowerDriveBundle:Folder:index.html.twig', array(
+        return $this->render('FlowerDriveBundle:folder:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -46,7 +46,7 @@ class FolderController extends Controller
             'archived' => false,
         ));
 
-        return $this->render('FlowerDriveBundle:Folder:browse.html.twig', array(
+        return $this->render('FlowerDriveBundle:folder:browse.html.twig', array(
             'folder' => $folder,
             'folders' => $folders,
             'files' => $files,
@@ -65,7 +65,7 @@ class FolderController extends Controller
         ));
         $deleteForm = $this->createDeleteForm($folder->getId(), 'drive_folder_delete');
 
-        return $this->render('FlowerDriveBundle:Folder:show.html.twig', array(
+        return $this->render('FlowerDriveBundle:folder:show.html.twig', array(
             'folder' => $folder,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -89,7 +89,7 @@ class FolderController extends Controller
 
         $form = $this->createForm(new FolderType(), $folder);
 
-        return $this->render('FlowerDriveBundle:Folder:new.html.twig', array(
+        return $this->render('FlowerDriveBundle:folder:new.html.twig', array(
             'folder' => $folder,
             'form' => $form->createView(),
         ));
@@ -117,7 +117,7 @@ class FolderController extends Controller
             return $this->redirect($this->generateUrl('drive_folder_show', array('id' => $folder->getId())));
         }
 
-        return $this->render('FlowerDriveBundle:Folder:new.html.twig', array(
+        return $this->render('FlowerDriveBundle:folder:new.html.twig', array(
             'folder' => $folder,
             'form' => $form->createView(),
         ));
@@ -135,7 +135,7 @@ class FolderController extends Controller
         ));
         $deleteForm = $this->createDeleteForm($folder->getId(), 'drive_folder_delete');
 
-        return $this->render('FlowerDriveBundle:Folder:edit.html.twig', array(
+        return $this->render('FlowerDriveBundle:folder:edit.html.twig', array(
             'folder' => $folder,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -165,7 +165,7 @@ class FolderController extends Controller
         }
         $deleteForm = $this->createDeleteForm($folder->getId(), 'drive_folder_delete');
 
-        return $this->render('FlowerDriveBundle:Folder:edit.html.twig', array(
+        return $this->render('FlowerDriveBundle:folder:edit.html.twig', array(
             'folder' => $folder,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
