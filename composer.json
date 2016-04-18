@@ -1,22 +1,25 @@
 {
-    "name": "flower/drivebundle",
-    "description": "Flower file management.",
-    "license": "MIT",
-    "type" : "symfony-bundle",
-    "autoload": {
-        "psr-0": {
-            "" : "src/"
-        }
+  "name": "flower/drivebundle",
+  "description": "Flower file management.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Juan Manuel Aguero",
+      "email": "jaguero@flowcode.com.ar"
     },
-    "authors": [
-        {
-            "name": "Juan Manuel Aguero",
-            "email": "jaguero@flowcode.com.ar"
-        },
-        {
-            "name": "Francisco Memoli Olmos",
-            "email": "fmemoli@flowcode.com.ar"
-        }
-    ],
-    "require": {}
+    {
+      "name": "Francisco Memoli Olmos",
+      "email": "fmemoli@flowcode.com.ar"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
 }
