@@ -14,47 +14,47 @@ class File
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $path;
+    protected $path;
 
     /**
      * @var string
      */
-    private $type;
+    protected $type;
 
     /**
      * @var Folder
      */
-    private $folder;
+    protected $folder;
 
     /**
      * @var boolean
      */
-    private $archived;
+    protected $archived;
 
     /**
      * @var UploadedFile
      */
-    private $file;
+    protected $file;
 
     /**
      * @var \DateTime
      */
-    private $created;
+    protected $created;
 
     /**
      * @var \DateTime
      */
-    private $updated;
+    protected $updated;
 
     /**
      * File constructor.

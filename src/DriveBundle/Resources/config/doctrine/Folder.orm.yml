@@ -1,7 +1,7 @@
-Flower\DriveBundle\Entity\Folder:
+Flower\ModelBundle\Entity\Drive\Folder:
     type: entity
     table: drive_folder
-    repositoryClass: Flower\DriveBundle\Repository\FolderRepository
+    repositoryClass: Flower\ModelBundle\Repository\Drive\FolderRepository
     id:
         id:
             type: integer
@@ -30,16 +30,16 @@ Flower\DriveBundle\Entity\Folder:
 
     oneToMany:
         folders:
-          targetEntity: Flower\DriveBundle\Entity\Folder
+          targetEntity: Flower\ModelBundle\Entity\Drive\Folder
           mappedBy: parent
 
         files:
-          targetEntity: Flower\DriveBundle\Entity\File
+          targetEntity: Flower\ModelBundle\Entity\Drive\File
           mappedBy: folder
 
     manyToOne:
         parent:
-          targetEntity: Flower\DriveBundle\Entity\Folder
+          targetEntity: Flower\ModelBundle\Entity\Drive\Folder
           inversedBy: folders
           joinColumn:
             name: parent_id

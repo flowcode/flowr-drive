@@ -13,47 +13,47 @@ class Folder
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var integer
      */
-    private $level;
+    protected $level;
 
     /**
      * @var Folder
      */
-    private $parent;
+    protected $parent;
 
     /**
      *
      */
-    private $folders;
+    protected $folders;
 
     /**
      *
      */
-    private $files;
+    protected $files;
 
     /**
      * @var boolean
      */
-    private $archived;
+    protected $archived;
 
     /**
      * @var \DateTime
      */
-    private $created;
+    protected $created;
 
     /**
      * @var \DateTime
      */
-    private $updated;
+    protected $updated;
 
     public function __construct()
     {

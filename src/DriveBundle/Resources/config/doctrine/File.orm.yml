@@ -1,7 +1,7 @@
-Flower\DriveBundle\Entity\File:
+Flower\ModelBundle\Entity\Drive\File:
     type: entity
     table: drive_file
-    repositoryClass: Flower\DriveBundle\Repository\FileRepository
+    repositoryClass: Flower\ModelBundle\Drive\Repository\FileRepository
     id:
         id:
             type: integer
@@ -33,7 +33,7 @@ Flower\DriveBundle\Entity\File:
 
     manyToOne:
         folder:
-            targetEntity: Flower\DriveBundle\Entity\Folder
+            targetEntity: Flower\ModelBundle\Entity\Drive\Folder
             inversedBy: files
             joinColumn:
                 name: folder_id

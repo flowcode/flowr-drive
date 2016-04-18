@@ -4,9 +4,10 @@
     "license": "MIT",
     "autoload": {
         "psr-0": {
-            "": "src/"
+            "Flower\\DriveBundle" : ""
         }
     },
+    "target-dir" : "Flower/DriveBundle",
     "authors": [
         {
             "name": "Juan Manuel Aguero",
