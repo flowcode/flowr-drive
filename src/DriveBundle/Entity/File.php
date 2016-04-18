@@ -3,7 +3,6 @@
 namespace Flower\DriveBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Flower\DriveBundle\Entity\Folder;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**

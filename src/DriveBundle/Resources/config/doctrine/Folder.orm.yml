@@ -1,7 +1,7 @@
-Flower\ModelBundle\Entity\Drive\Folder:
+Flower\DriveBundle\Entity\Folder:
     type: entity
     table: drive_folder
-    repositoryClass: Flower\ModelBundle\Repository\Drive\FolderRepository
+    repositoryClass: Flower\DriveBundle\Repository\FolderRepository
     id:
         id:
             type: integer
@@ -30,20 +30,17 @@ Flower\ModelBundle\Entity\Drive\Folder:
 
     oneToMany:
         folders:
-          targetEntity: Flower\ModelBundle\Entity\Drive\Folder
+          targetEntity: Flower\DriveBundle\Entity\Folder
           mappedBy: parent
 
         files:
-          targetEntity: Flower\ModelBundle\Entity\Drive\File
+          targetEntity: Flower\DriveBundle\Entity\File
           mappedBy: folder
 
     manyToOne:
         parent:
-          targetEntity: Flower\ModelBundle\Entity\Drive\Folder
+          targetEntity: Flower\DriveBundle\Entity\Folder
           inversedBy: folders
           joinColumn:
             name: parent_id
             referencedColumnName: id
-
-
-    lifecycleCallbacks: {  }

@@ -26,14 +26,14 @@ class Folder
     protected $level;
 
     /**
-     * @var Folder
-     */
-    protected $parent;
-
-    /**
      *
      */
     protected $folders;
+
+    /**
+     * @var Folder
+     */
+    protected $parent;
 
     /**
      *
@@ -188,6 +188,23 @@ class Folder
         return $this->updated;
     }
 
+
+    /**
+     * @return mixed
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param mixed $parent
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+    }
+
     /**
      * @return mixed
      */
@@ -220,21 +237,6 @@ class Folder
         $this->files = $files;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * @param mixed $parent
-     */
-    public function setParent($parent)
-    {
-        $this->parent = $parent;
-    }
 
     function __toString()
     {
