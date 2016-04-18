@@ -2,6 +2,7 @@
     "name": "flower/drivebundle",
     "description": "Flower file management.",
     "license": "MIT",
+    "type" : "symfony-bundle",
     "autoload": {
         "psr-0": {
             "Flower\\DriveBundle" : ""
