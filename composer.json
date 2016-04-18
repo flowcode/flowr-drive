@@ -5,10 +5,9 @@
     "type" : "symfony-bundle",
     "autoload": {
         "psr-0": {
-            "Flower\\DriveBundle" : ""
+            "" : "src/"
         }
     },
-    "target-dir" : "Flower/DriveBundle",
     "authors": [
         {
             "name": "Juan Manuel Aguero",
@@ -19,7 +18,5 @@
             "email": "fmemoli@flowcode.com.ar"
         }
     ],
-    "require": {
-        "php": ">=5.3.3"
-    }
+    "require": {}
 }
