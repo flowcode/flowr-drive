@@ -1,0 +1,51 @@
+{% extends "FlowerCoreBundle::layout.html.twig" %}
+
+{% block title %}{{ '%entity% list'|trans({'%entity%': 'Folder'}, 'Folder') }} - {{ parent() }}{% endblock %}
+{% block body %}
+    <section class="content-header">
+        <h1>
+            {{ '%entity% list'|trans({'%entity%': 'Folder'}, 'Folder') }}
+        </h1>
+    </section>
+    <section class="content">
+        <div class="box">
+            <div class="box-header">
+                <div class="box-tools pull-right">
+                    <a class="btn btn-link btn-sm" href={{ path('drive_folder_new') }}>
+                        <i class="fa fa-plus"></i> {{ 'Create a new %entity%'|trans({'%entity%': 'Folder'}, 'Folder') }}
+                    </a>
+                </div>
+            </div>
+            <div class="box-body">
+                <table class="table table-hover records_list table-condensed">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Level</th>
+                        <th scope="col">Archived</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Updated</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for folder in entities %}
+                        <tr>
+
+                            <td><a href="{{ path('drive_folder_show', {id: folder.id}) }}">{{ folder.name }}</a></td>
+                            <td>{{ folder.level }}</td>
+                            <td>{% if folder.archived %}<i class="fa fa-check-square-o"></i>{% else %}<i
+                                        class="fa fa-square-o"></i>{% endif %}</td>
+                            <td>{% if folder.created %}{{ folder.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{% if folder.updated %}{{ folder.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="box-footer">
+
+            </div>
+
+    </section>
+
+{% endblock %}

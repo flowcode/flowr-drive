@@ -1,0 +1,31 @@
+{% extends "FlowerCoreBundle::layout.html.twig" %}
+
+{% block title %}{{ '%entity% creation'|trans({'%entity%': 'File'}, 'File') }} - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            <a href="{{ path('drive_file') }}"> {{ '%entity% list'|trans({'%entity%': 'File'}, 'File') }}</a>
+            /
+            {{ 'File' | trans({}, 'File')}}
+        </h1>
+
+    </section>        
+    <section class="content">
+        <div class="box">
+            <div class="box-body">
+                {{ form_start(form, {action: path('drive_file_create')}) }}
+                    {{ form_widget(form) }}
+                    <p>
+                        <button class="btn-default btn" type="submit">{{ 'save'|trans | capitalize}}</button>
+                    </p>
+                {{ form_end(form) }}
+            </div>
+            <div class="box-footer">
+                        
+        <div class="btn-group record_actions"></div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

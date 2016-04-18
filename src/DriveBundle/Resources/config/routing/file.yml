@@ -1,0 +1,31 @@
+drive_file:
+    pattern:  /
+    defaults: { _controller: "FlowerDriveBundle:File:index" }
+
+
+drive_file_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "FlowerDriveBundle:File:show" }
+
+drive_file_new:
+    pattern:  /new
+    defaults: { _controller: "FlowerDriveBundle:File:new" }
+
+drive_file_create:
+    pattern:  /create
+    defaults: { _controller: "FlowerDriveBundle:File:create" }
+    requirements: { _method: post }
+
+drive_file_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FlowerDriveBundle:File:edit" }
+
+drive_file_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FlowerDriveBundle:File:update" }
+    requirements: { _method: post|put }
+
+drive_file_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FlowerDriveBundle:File:delete" }
+    requirements: { _method: post|delete }

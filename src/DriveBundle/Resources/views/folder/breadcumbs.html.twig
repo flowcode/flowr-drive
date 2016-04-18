@@ -1,0 +1,7 @@
+{% if folder.parent %}
+    {{ include('FlowerDriveBundle:Folder:breadcumbs.html.twig',{folder:folder.parent}) }}
+    /
+{% endif %}
+<a href="{{ path('drive_folder_browse',{id:folder.id}) }}">
+    {{ folder }}
+</a>

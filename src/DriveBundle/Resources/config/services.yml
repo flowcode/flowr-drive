@@ -1,0 +1,10 @@
+services:
+#    flower_drive.example:
+#        class: Flower\DriveBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+
+    drive.service.file:
+        class: Flower\DriveBundle\Service\FileService
+        calls:
+          - [setContainer, ["@service_container"]]

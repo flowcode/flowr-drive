@@ -1,0 +1,11 @@
+flower_drive_drive_folder:
+    resource: "@FlowerDriveBundle/Resources/config/routing/folder.yml"
+    prefix:   /drive/folder
+
+flower_drive_drive_file:
+    resource: "@FlowerDriveBundle/Resources/config/routing/file.yml"
+    prefix:   /drive/file
+
+flower_drive_homepage:
+    path:     /drive
+    defaults: { _controller: FlowerDriveBundle:Default:index }

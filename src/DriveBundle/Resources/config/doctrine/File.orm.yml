@@ -1,0 +1,42 @@
+Flower\DriveBundle\Entity\File:
+    type: entity
+    table: drive_file
+    repositoryClass: Flower\DriveBundle\Repository\FileRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        path:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: 255
+        archived:
+            type: boolean
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+
+    manyToOne:
+        folder:
+            targetEntity: Flower\DriveBundle\Entity\Folder
+            inversedBy: files
+            joinColumn:
+                name: folder_id
+                referencedColumnName: id
+
+    lifecycleCallbacks: {  }

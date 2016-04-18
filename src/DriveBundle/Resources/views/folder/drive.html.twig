@@ -1,0 +1,91 @@
+<div class="row">
+    {% for folder in folders %}
+        <div class="col-sm-2 ">
+            <div class="drive-folder">
+                <div class="icon">
+                    <i class="fa fa-folder"></i>
+                </div>
+                <div class="btn-group tools pull-right">
+                    <button type="button" class="btn btn-default btn-flat btn-xs dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <i class="ionicons ion-android-more-vertical"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ path('drive_folder_edit', { 'id':folder.id }) }}">
+                                {{ 'edit'|trans|title }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('drive_folder_show', { 'id':folder.id }) }}">
+                                {{ 'properties'|trans|title }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('drive_folder_archive', { 'id':folder.id }) }}">
+                                {{ 'Send to trash'|trans|title }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="drive-item-content">
+                    <a href="{{ path('drive_folder_browse',{id:folder.id}) }}">
+                        <div class="title">
+                            {{ folder }}
+                        </div>
+                    </a>
+                    {{ folder.folders|length }} folders,
+                    {{ folder.files|length }} files.
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {% for file in files %}
+        <div class="col-sm-2">
+            <div class="drive-file">
+
+                <div class="icon">
+                    {% if file.type == 'pdf' %}
+                        <i class="fa fa-file-pdf-o"></i>
+                    {% elseif file.type == 'png' or file.type or 'gif' or file.type == 'jpg' %}
+                        <i class="fa fa-file-image-o"></i>
+                    {% elseif file.type == 'xls' or file.type == 'xlsx' %}
+                        <i class="fa fa-file-excel-o"></i>
+                    {% elseif file.type == 'zip' %}
+                        <i class="fa fa-file-zip-o"></i>
+                    {% else %}
+                        <i class="fa fa-file-o"></i>
+                    {% endif %}
+                </div>
+                <div class="btn-group tools pull-right">
+                    <button type="button" class="btn btn-default btn-flat btn-xs dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <i class="ionicons ion-android-more-vertical"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ path('drive_file_edit',{id:file.id}) }}">
+                                {{ 'edit'|trans|title }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ file.path }}">
+                                {{ 'download'|trans|title }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('drive_file_show', {id:file.id}) }}">
+                                {{ 'properties'|trans|title }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="drive-item-content">
+                    <div class="title">
+                        {{ file }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

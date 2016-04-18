@@ -1,0 +1,131 @@
+{% extends "FlowerCoreBundle::layout.html.twig" %}
+
+{% block title %}File - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            <a href="{{ path('drive_file') }}"> {{ 'File list'|trans({'File': 'File'}, 'File') }}</a>
+            /
+            {{ 'File' | trans({}, 'File')}}
+        </h1>
+    </section>
+    <section class="content">    
+        <div class="box"  id='showFile'>
+            <div class="box-header">
+                <div class="box-tools  pull-right">
+                            {{ form_start(delete_form) }}
+        {{ form_widget(delete_form) }}
+
+        <div class="btn-group record_actions">            <button class="btn btn-link btn-sm" type="submit"> {{ 'Delete'|trans({}, 'File') }}</button>
+            <input name="modal" type="hidden" value="0">
+            
+                <a class="btn btn-link  btn-sm" onclick="showEdit(true)">
+                    {{ 'Edit'|trans({}, 'File') }}
+                </a>
+</div>
+            <input name="modal" type="hidden" value="0">
+        {{ form_end(delete_form) }}
+
+</div>
+            </div>
+            <div class="box-body">
+                <table class="table table-hover record_properties">
+                    <tbody>                            
+                        <tr>
+                            <th scope="row">{{'Name'|trans({}, 'File')}}</th>
+                            <td>{{ file.name }}</td>
+                        </tr>                            
+                        <tr>
+                            <th scope="row">{{'Path'|trans({}, 'File')}}</th>
+                            <td>{{ file.path }}</td>
+                        </tr>                            
+                        <tr>
+                            <th scope="row">{{'Type'|trans({}, 'File')}}</th>
+                            <td>{{ file.type }}</td>
+                        </tr>                            
+                        <tr>
+                            <th scope="row">{{'Archived'|trans({}, 'File')}}</th>
+                            <td>{% if file.archived %}<i class="fa fa-check-square-o"></i>{% else %}<i class="fa fa-square-o"></i>{% endif %}</td>
+                        </tr>                            
+                        <tr>
+                            <th scope="row">{{'Created'|trans({}, 'File')}}</th>
+                            <td>{{ file.created|date('Y-m-d H:i:s') }}</td>
+                        </tr>                            
+                        <tr>
+                            <th scope="row">{{'Updated'|trans({}, 'File')}}</th>
+                            <td>{{ file.updated|date('Y-m-d H:i:s') }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="box-footer">
+            
+            </div>
+        </div>
+        <div class="box" id='editFormFile'  style="display: none;">
+            <div class="box-header">
+                <div class="box-tools">
+                    {{ form_start(delete_form) }}
+                    {{ form_widget(delete_form) }}
+                    <div class="btn-group record_actions">
+                        <button class="btn btn-link btn-sm" type="submit"> {{ 'Delete'|trans({}, 'File') }}</button>
+                        <a class="btn btn-link  btn-sm" onclick="showEdit(false)">
+                        {{ 'Cancel'|trans({}, 'Account') }}
+                        </a>
+                    </div>
+                    <input name="modal" type="hidden" value="0">
+                    {{ form_end(delete_form) }}
+                </div>
+            </div>
+            <div class="box-body">
+
+            {{ form_start(edit_form) }}
+                {{ form_widget(edit_form) }}
+                <p>
+                    <button class="btn-default btn" type="submit">{{ 'save'|trans | capitalize}}</button>
+                </p>
+            {{ form_end(edit_form) }}
+            </div>
+            <div class="box-footer">
+            </div>
+        </div>
+    </section>
+
+        <div class="btn-group record_actions"></div>
+
+        <div id="delete_confirm" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3>{{ 'Confirm delete'|trans({}, 'File') }}</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ 'You are about to delete an item'|trans({}, 'File') }}, {{ 'this procedure is irreversible'|trans({}, 'File') }}.</p>
+                        <p>{{ 'Do you want to proceed?'|trans({}, 'File') }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger">{{ 'Yes'|trans({}, 'File') }}</button>
+                        <button class="btn btn-default" data-dismiss="modal">{{ 'No'|trans({}, 'File') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+{% block javascripts %}
+
+    {{ parent() }}
+    <script type="text/javascript">
+        function showEdit(show){
+            if(show){
+                $('#showFile').hide();
+                $('#editFormFile').show();
+            }else{
+                $('#showFile').show();
+                $('#editFormFile').hide();
+            }
+        }
+        
+    </script>
+{% endblock %}

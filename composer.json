@@ -1,0 +1,24 @@
+{
+    "name": "flower/drivebundle",
+    "description": "Flower file management.",
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Juan Manuel Aguero",
+            "email": "jaguero@flowcode.com.ar"
+        },
+        {
+            "name": "Francisco Memoli Olmos",
+            "email": "fmemoli@flowcode.com.ar"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "flowcode/notificationbundle": "^0.1.0"
+    }
+}
